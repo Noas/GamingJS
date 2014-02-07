@@ -92,7 +92,6 @@
 				btiniciar = Button.createShapeButton("botão", format, bounds, colors);
 				MouseSettings.settings(btiniciar, "normal");
 				btiniciar.x = stage.width + 100; btiniciar.y = stage.height * 0.75;
-				btiniciar.addEventListener('touchstart', touchHandler);
 				stage.addChild(btiniciar);
 				
 				switchButton();
@@ -105,19 +104,6 @@
 				audio = new Audio();
 				logo = new Logo();
 				informations = new Informations();
-			}
-			
-			function touchHandler(event)
-			{
-				console.log("Item 0: " + event.touches.item(0));
-				console.log("Item 0: " + event.targetTouches.item(0));
-				console.log("Quantidade de toques: " + event.touches.length);
-				
-				var label = Label.createLabel(event.touches.item(0), "bold 14px Arial", "#EEEEEE");
-				label.x = stage.width * 0.5;
-				label.y = stage.height * 0.5;
-				
-				stage.addChild(label);
 			}
 			
 			function switchButton()
