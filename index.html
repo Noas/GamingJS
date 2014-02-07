@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Game</title>
+        <script type="text/javascript" src="http://code.createjs.com/createjs-2013.12.12.min.js"></script>
+        <script type="text/javascript" src="http://code.createjs.com/movieclip-0.7.1.min.js"></script>
+        <script type="text/javascript" src="game.js"></script>
+        <script type="text/javascript" src="common/common.js"></script>
+        <script type="text/javascript" src="content/content.js"></script>
+        <script type="text/javascript" src="display/bitmap.js"></script>
+        <script type="text/javascript" src="display/button.js"></script>
+        <script type="text/javascript" src="display/container.js"></script>
+        <script type="text/javascript" src="display/graphic.js"></script>
+        <script type="text/javascript" src="display/label.js"></script>
+        <script type="text/javascript" src="hud/audio.js"></script>
+        <script type="text/javascript" src="hud/logo.js"></script>
+        <script type="text/javascript" src="hud/informations.js"></script>
+        <script type="text/javascript" src="hud/regressivo.js"></script>
+        <script type="text/javascript" src="manager/music.js"></script>
+        <script type="text/javascript" src="manager/sound.js"></script>
+        <script type="text/javascript" src="preload/preload.js"></script>
+        <script type="text/javascript" src="settings/mousesettings.js"></script>
+		<script>
+            
+			//var queue;
+			var preloader;
+			var btiniciar;
+			var logo;
+			var audio;
+			var informations;
+			var regressivo;
+			var musicManager;
+			var soundManager;
+			
+            function init() 
+            {
+                stage = new createjs.Stage(document.getElementById("canvas"));
+                stage.enableMouseOver(20);
+				
+				// não funciona em webview
+				//createjs.Touch.disable(stage);
+				
+				resize();
+                
+                createjs.Ticker.setFPS(60);
+                createjs.Ticker.addEventListener("tick", tick);
+				
+				/**
+				 * PRELOADER
+				 */
+				preloader = new Preloader(manifest);
+				preloader.initialize();
+            }
+			
+			function resize()
+			{
+				if (window.innerWidth > 800)
+				{
+					canvas.width = window.innerWidth;
+					canvas.height = window.innerHeight;
+					stage.width = canvas.width;
+					stage.height = canvas.height;
+				} 
+				else
+				{
+					stage.width = 800;
+					stage.height = 600;
+				}
+			}
+			
+            function tick(event)
+            {
+				stage.update();
+            }
+			
+			function inicializaGame() 
+			{	
+				var sky = Bitmap.getBitmap("sky", {x:0, y:0}, preloader.queue);
+				sky.width = stage.width;
+				sky.height = stage.height;
+				
+				var clouds = Bitmap.getBitmap("clouds", {x:-50, y:50}, preloader.queue);
+				
+				stage.addChild(sky, clouds);
+				
+				Common.setMusic();
+				
+				var format = Common.getButtonFormatModel();
+				var bounds = Common.getButtonBoundsModel();
+				var colors = Common.getButtonColorModel();
+				btiniciar = Button.createShapeButton("botão", format, bounds, colors);
+				MouseSettings.settings(btiniciar, "normal");
+				btiniciar.x = stage.width + 100; btiniciar.y = stage.height * 0.75;
+				stage.addChild(btiniciar);
+				
+				switchButton();
+				
+				musicManager = new MusicManager();
+				//musicManager.playMusic("creation");
+				
+				soundManager = new SoundManager();
+				
+				audio = new Audio();
+				logo = new Logo();
+				informations = new Informations();
+			}
+			
+			function switchButton()
+			{
+				if (btiniciar.x > stage.width)
+					createjs.Tween.get(btiniciar, {override:true}).to({x:stage.width * 0.5}, 500, createjs.Ease.quartOut).call(enterComplete);
+				else 
+					createjs.Tween.get(btiniciar, {override:true}).to({x:stage.width + 100}, 500, createjs.Ease.quartIn);
+			}
+			
+            function enterComplete()
+            {
+                btiniciar.addEventListener("click", clickHandler);
+            }
+			
+            function clickHandler(event)
+            {
+				//soundManager.playSound("pop");
+				document.getElementById("pop").play();
+				
+                createjs.Tween.get(btiniciar, {override:true}).to({x:900}, 500, createjs.Ease.quartIn);
+                
+				setTimeout(deploy, 200);
+                
+                informations.switchIdentification();
+                logo.switchLogo();
+				
+				switchButton();
+            }
+			
+			function constroiCenario()
+            {
+				/*var btm = new BitmapData();
+				
+                stage.addChild(btm.getBitmapData("sky", 0, 0));
+                stage.addChild(btm.getBitmapData("clouds", 0, 0));
+                stage.addChild(btm.getBitmapData("sol", stage.width - 250, 0));
+                stage.addChild(btm.getBitmapData("back-background", 0, 0));
+                stage.addChild(btm.getBitmapData("front-background", 0, 0));
+                stage.addChild(btm.getBitmapData("ground", 0, stage.height * 0.5));
+                
+                title = btm.getBitmapData("title", 0, 0);
+                stage.addChild(title);*/
+            }
+			
+			function resetGame()
+			{
+				regressivo.stopInterval();
+				stage.removeAllChildren();
+				
+				musicManager.stopMusic();
+				
+				setTimeout(function() { inicializaGame(); }, 100);
+			}
+            
+        </script>
+		<style type="text/css">
+			* {
+				padding: 0px;
+				margin: 0px;
+			}
+			body {
+				padding: 0px;
+				margin: 0px;
+			}
+			canvas {
+				background-color:#EEEEEE;
+			}
+		</style>
+    </head>
+    <body onload="init()">
+		<audio id="pop" src="assets/sound/pop.mp3" preload="auto"></audio>
+		<audio id="creation" src="assets/sound/creation.mp3" preload="auto"></audio>
+        <canvas width="800" height="600" id="canvas"></canvas>
+    </body>
+</html>

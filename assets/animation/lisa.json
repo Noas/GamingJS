@@ -1,0 +1,132 @@
+{"frames": [
+
+{
+	"filename": "Lisa_1.png",
+	"frame": {"x":0,"y":0,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_10.png",
+	"frame": {"x":172,"y":0,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_11.png",
+	"frame": {"x":344,"y":0,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_12.png",
+	"frame": {"x":516,"y":0,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_13.png",
+	"frame": {"x":688,"y":0,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_2.png",
+	"frame": {"x":0,"y":172,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_3.png",
+	"frame": {"x":172,"y":172,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_4.png",
+	"frame": {"x":344,"y":172,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_5.png",
+	"frame": {"x":516,"y":172,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_6.png",
+	"frame": {"x":688,"y":172,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_7.png",
+	"frame": {"x":0,"y":344,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_8.png",
+	"frame": {"x":172,"y":344,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Lisa_9.png",
+	"frame": {"x":344,"y":344,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Shadow Lisa.png",
+	"frame": {"x":516,"y":344,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+},
+{
+	"filename": "Shadow Lisa_2.png",
+	"frame": {"x":688,"y":344,"w":172,"h":172},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":172},
+	"sourceSize": {"w":172,"h":172}
+}],
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "lisa.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9c43a2cb9a3847ec0e9dc2d23bd95244$"
+}
+}
